@@ -86,3 +86,26 @@ test('middleware and engine to stream', (t) => {
   })
 
 })
+
+test('middleware - test subscription response', (t) => {
+
+  // subscription response
+  const res = { 
+    jsonrpc: '2.0', 
+    method: 'eth_subscription', 
+    params: {
+      subscription: '0x01',
+      result: []
+    }
+  }
+ 
+  const engine = new RpcEngine()
+  const middleware = createStreamMiddleware()
+  engine.push(middleware)
+
+  middleware.stream.write(res, 'utf8', (err) => {
+    t.notOk(err, 'does not error')
+    t.end()
+  })
+
+})
