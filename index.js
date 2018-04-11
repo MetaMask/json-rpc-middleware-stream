@@ -22,17 +22,18 @@ function createStreamMiddleware() {
   }
 
   function write (res, encoding, cb) {
-    // console.log(res, encoding, cb)
-    const context = idMap[res.id]
-    if (!context) cb(new Error(`StreamMiddleware - Unknown response id ${res.id}`))
-    delete idMap[res.id]
-    // copy whole res onto original res
-    Object.assign(context.res, res)
-    // run callback on empty stack,
-    // prevent internal stream-handler from catching errors
-    setTimeout(context.end)
+    if(res.method !== 'eth_subscription') {
+      const context = idMap[res.id]
+      if (!context) cb(new Error(`StreamMiddleware - Unknown response id ${res.id}`))
+      delete idMap[res.id]
+      // copy whole res onto original res
+      Object.assign(context.res, res)
+      // run callback on empty stack,
+      // prevent internal stream-handler from catching errors
+      setTimeout(context.end)
+    }
     // continue processing stream
     cb()
   }
-
+  
 }
