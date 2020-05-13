@@ -1,7 +1,6 @@
 const test = require('tape')
 const RpcEngine = require('json-rpc-engine')
-const createJsonRpcStream = require('..')
-const createEngineStream = require('../engineStream')
+const { createJsonRpcStream, createEngineStream } = require('..')
 
 test('middleware - raw test', (t) => {
 

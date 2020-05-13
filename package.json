@@ -6,7 +6,7 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "engineStream.js"
+    "src"
   ],
   "scripts": {
     "test": "node test/index.js",
