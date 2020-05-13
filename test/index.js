@@ -24,7 +24,6 @@ test('middleware - raw test', (t) => {
     t.deepEqual(initRes, res, 'got the expected response')
     t.end()
   })
-
 })
 
 test('engine to stream - raw test', (t) => {
@@ -51,7 +50,6 @@ test('engine to stream - raw test', (t) => {
 
   stream.write(req)
 })
-
 
 test('middleware and engine to stream', (t) => {
 
@@ -83,7 +81,6 @@ test('middleware and engine to stream', (t) => {
     t.deepEqual(res, _res, 'got the expected response')
     t.end()
   })
-
 })
 
 test('server notification', (t) => {
@@ -100,7 +97,6 @@ test('server notification', (t) => {
   // receive notification
   jsonRpcConnection.stream.write(notif)
 })
-
 
 test('server notification in stream', (t) => {
   const engine = new RpcEngine()
