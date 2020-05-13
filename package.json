@@ -3,7 +3,6 @@
   "version": "2.1.1",
   "description": "A small toolset for streaming JSON RPC data and matching requests and responses.",
   "license": "ISC",
-  "author": "MetaMask",
   "main": "index.js",
   "files": [
     "index.js",
