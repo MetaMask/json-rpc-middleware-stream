@@ -6,7 +6,8 @@
   "author": "MetaMask",
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "engineStream.js"
   ],
   "scripts": {
     "test": "node test/index.js",
