@@ -11,7 +11,7 @@
     "safe-event-emitter": "^1.0.1"
   },
   "devDependencies": {
-    "json-rpc-engine": "^3.8.0"
+    "json-rpc-engine": "^5.1.8"
   },
   "scripts": {
     "test": "node test/index.js"
