@@ -14,7 +14,7 @@
     "lint:fix": "eslint . --ext js,json --fix"
   },
   "dependencies": {
-    "readable-stream": "^2.3.3",
+    "readable-stream": "^3.6.0",
     "safe-event-emitter": "^1.0.1"
   },
   "devDependencies": {

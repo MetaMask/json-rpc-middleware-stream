@@ -15,6 +15,7 @@ module.exports = function createStreamMiddleware () {
     // write req to stream
     stream.push(req)
     // register request on id map
+    console.log('JSON RPC MIDDLEWARE REQUEST ID', req.id)
     idMap[req.id] = { req, res, next, end }
   }
 
@@ -41,6 +42,7 @@ module.exports = function createStreamMiddleware () {
   }
 
   function processResponse (res) {
+    console.log('JSON RPC MIDDLEWARE RESPONSE ID', res.id)
     const context = idMap[res.id]
     if (!context) {
       throw new Error(`StreamMiddleware - Unknown response id ${res.id}`)
