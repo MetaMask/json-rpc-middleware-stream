@@ -20,7 +20,7 @@ interface IdMap {
   [requestId: string]: IdMapValue;
 }
 
-export = function createStreamMiddleware () {
+export default function createStreamMiddleware () {
   const idMap: IdMap = {}
   const stream = new Duplex({
     objectMode: true,

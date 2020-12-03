@@ -5,7 +5,7 @@ interface EngineStreamOptions {
   engine: JsonRpcEngine;
 }
 
-export = function createEngineStream (opts: EngineStreamOptions): Duplex {
+export default function createEngineStream (opts: EngineStreamOptions): Duplex {
   if (!opts || !opts.engine) {
     throw new Error('Missing engine parameter!')
   }
