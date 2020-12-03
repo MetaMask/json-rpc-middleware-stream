@@ -1,7 +1,7 @@
 {
   "name": "json-rpc-middleware-stream",
   "version": "2.1.1",
-  "description": "A small toolset for streaming JSON RPC data and matching requests and responses.",
+  "description": "A small toolset for streaming JSON-RPC data and matching requests and responses.",
   "license": "ISC",
   "main": "index.js",
   "files": [
@@ -18,10 +18,11 @@
     "safe-event-emitter": "^1.0.1"
   },
   "devDependencies": {
-    "@metamask/eslint-config": "^2.1.1",
+    "@metamask/eslint-config": "^4.1.0",
     "eslint": "^7.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-json": "^2.1.1",
+    "eslint-plugin-node": "^11.1.0",
     "json-rpc-engine": "^5.1.8",
     "tape": "^5.0.0"
   },
