@@ -25,7 +25,7 @@ interface IdMap {
  * EventEmitter. The middleware, and by extension stream, assume that middleware
  * parameters are properly formatted. No runtime type checking or validation is
  * performed.
- * 
+ *
  * @returns The event emitter, middleware, and stream.
  */
 export default function createStreamMiddleware() {
@@ -42,7 +42,7 @@ export default function createStreamMiddleware() {
     req,
     res,
     next,
-    end
+    end,
   ) => {
     // write req to stream
     stream.push(req);
@@ -59,7 +59,7 @@ export default function createStreamMiddleware() {
   function processMessage(
     res: PendingJsonRpcResponse<unknown>,
     _encoding: unknown,
-    cb: (error?: Error | null) => void
+    cb: (error?: Error | null) => void,
   ) {
     let err;
     try {

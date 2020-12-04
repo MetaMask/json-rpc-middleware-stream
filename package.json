@@ -11,8 +11,8 @@
   "scripts": {
     "build": "tsc --project .",
     "test": "node test/index.js",
-    "lint": "eslint . --ext js,json",
-    "lint:fix": "eslint . --ext js,json --fix"
+    "lint": "eslint . --ext ts,js,json",
+    "lint:fix": "eslint . --ext ts,js,json --fix"
   },
   "dependencies": {
     "@metamask/safe-event-emitter": "^2.0.0",
