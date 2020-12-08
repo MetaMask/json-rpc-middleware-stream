@@ -12,7 +12,7 @@
     "test": "yarn build && node test/index.js",
     "lint": "eslint . --ext ts,js,json",
     "lint:fix": "eslint . --ext ts,js,json --fix",
-    "prepare": "yarn test"
+    "prepublishOnly": "yarn test"
   },
   "dependencies": {
     "@metamask/safe-event-emitter": "^2.0.0",
