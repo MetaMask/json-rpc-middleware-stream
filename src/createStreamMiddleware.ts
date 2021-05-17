@@ -63,7 +63,7 @@ export default function createStreamMiddleware() {
   ) {
     let err;
     try {
-      const isNotification = !res.id;
+      const isNotification = !('id' in res);
       if (isNotification) {
         processNotification((res as unknown) as JsonRpcNotification<unknown>);
       } else {
