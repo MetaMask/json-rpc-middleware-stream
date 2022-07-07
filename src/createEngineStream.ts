@@ -21,9 +21,9 @@ export default function createEngineStream(opts: EngineStreamOptions): Duplex {
   const stream = new Duplex({ objectMode: true, read, write });
   // forward notifications
   if (engine.on) {
-    engine.on('notification', (message) => {
-      stream.push(message);
-    });
+    const onNotification = (message: unknown) => stream.push(message);
+    engine.on('notification', onNotification);
+    stream.on('close', () => engine.off('notification', onNotification));
   }
   return stream;
 
