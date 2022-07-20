@@ -32,7 +32,7 @@ interface DuplexJsonRpcStreamOptions {
  * @returns The stream wrapping the duplex JSON-RPC engine.
  */
 export default function createDuplexJsonRpcStream(
-  options: DuplexJsonRpcStreamOptions,
+  options: DuplexJsonRpcStreamOptions = {},
 ) {
   const {
     receiverMiddleware = [],
