@@ -1,5 +1,6 @@
+import { JsonRpcRequest } from '@metamask/utils';
 import { Duplex } from 'readable-stream';
-import { JsonRpcEngine, JsonRpcRequest } from 'json-rpc-engine';
+import { JsonRpcEngine } from 'json-rpc-engine';
 
 interface EngineStreamOptions {
   engine: JsonRpcEngine;
@@ -13,18 +14,8 @@ interface EngineStreamOptions {
  * @returns The stream wrapping the engine.
  */
 export default function createEngineStream(opts: EngineStreamOptions): Duplex {
-  if (!opts || !opts.engine) {
-    throw new Error('Missing engine parameter!');
-  }
-
   const { engine } = opts;
   const stream = new Duplex({ objectMode: true, read: () => undefined, write });
-  // forward notifications
-  if (engine.on) {
-    engine.on('notification', (message) => {
-      stream.push(message);
-    });
-  }
   return stream;
 
   /**
