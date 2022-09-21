@@ -28,7 +28,7 @@ interface IdMap {
  *
  * @returns The event emitter, middleware, and stream.
  */
-export default function createStreamMiddleware() {
+export default function createStreamMiddleware(options = {}) {
   const idMap: IdMap = {}; // TODO: replace with actual Map
   const stream = new Duplex({
     objectMode: true,
@@ -109,7 +109,7 @@ export default function createStreamMiddleware() {
    * @param notif - The notification to process.
    */
   function processNotification(notif: JsonRpcNotification<unknown>) {
-    if(notif is reconnect notification) {
+    if(options && options.retryOnMessage && notif.method === options.retryOnMessage) {
       retryStuckRequests()
     }
     events.emit('notification', notif);
