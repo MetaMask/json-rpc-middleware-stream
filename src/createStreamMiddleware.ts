@@ -29,7 +29,7 @@ interface IdMap {
  * @returns The event emitter, middleware, and stream.
  */
 export default function createStreamMiddleware() {
-  const idMap: IdMap = {};
+  const idMap: IdMap = {}; // TODO: replace with actual Map
   const stream = new Duplex({
     objectMode: true,
     read: () => undefined,
@@ -45,12 +45,17 @@ export default function createStreamMiddleware() {
     end,
   ) => {
     // write req to stream
-    stream.push(req);
+    sendToStream(req);
     // register request on id map
     idMap[req.id as unknown as string] = { req, res, next, end };
   };
 
   return { events, middleware, stream };
+
+  function sendToStream(req) {
+    // TODO: limiting retries could be implemented here
+    stream.push(req);
+  }
 
   /**
    * Writes a JSON-RPC object to the stream.
@@ -104,6 +109,16 @@ export default function createStreamMiddleware() {
    * @param notif - The notification to process.
    */
   function processNotification(notif: JsonRpcNotification<unknown>) {
+    if(notif is reconnect notification) {
+      retryStuckRequests()
+    }
     events.emit('notification', notif);
+  }
+
+  function retryStuckRequests() {
+    Object.values(idMap).forEach((req) => {
+    // TODO: limiting retries could be implemented here
+      sendToStream(req);
+    })
   }
 }
