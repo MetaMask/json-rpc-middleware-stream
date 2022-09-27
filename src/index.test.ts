@@ -1,7 +1,7 @@
 import { Duplex } from 'stream';
 import { JsonRpcEngine } from 'json-rpc-engine';
 import PortStream from 'extension-port-stream';
-import { Runtime } from 'webextension-polyfill-ts';
+import type { Runtime } from 'webextension-polyfill-ts';
 import { createStreamMiddleware, createEngineStream } from '.';
 
 const artificialDelay = (t = 0) =>
