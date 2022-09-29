@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [3.1.0] - 2022-09-28
+## [4.0.0] - 2022-09-28
 ### Changed
 - Retry support ([#27](https://github.com/MetaMask/json-rpc-middleware-stream/pull/27))
 - Q3 2022 repository standardization ([#25](https://github.com/MetaMask/json-rpc-middleware-stream/pull/25))
