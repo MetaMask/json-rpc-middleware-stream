@@ -14,6 +14,7 @@ interface IdMapValue {
   res: PendingJsonRpcResponse<unknown>;
   next: JsonRpcEngineNextCallback;
   end: JsonRpcEngineEndCallback;
+  retryCount?: number;
 }
 
 interface IdMap {
@@ -102,7 +103,8 @@ export default function createStreamMiddleware(options: Options = {}) {
   function processResponse(res: PendingJsonRpcResponse<unknown>) {
     const context = idMap[res.id as unknown as string];
     if (!context) {
-      throw new Error(`StreamMiddleware - Unknown response id "${res.id}"`);
+      console.warn(`StreamMiddleware - Unknown response id "${res.id}"`);
+      return;
     }
 
     delete idMap[res.id as unknown as string];
@@ -129,8 +131,12 @@ export default function createStreamMiddleware(options: Options = {}) {
    * Retry pending requests.
    */
   function retryStuckRequests() {
-    Object.values(idMap).forEach(({ req }) => {
-      // TODO: limiting retries could be implemented here
+    Object.values(idMap).forEach(({ req, retryCount = 0 }) => {
+      // Check for retry count below ensure that a request is not retried more than 3 times
+      if (!req.id || retryCount >= 3) {
+        return;
+      }
+      idMap[req.id].retryCount = retryCount + 1;
       sendToStream(req);
     });
   }
