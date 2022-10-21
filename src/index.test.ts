@@ -109,8 +109,7 @@ describe('middleware and engine to stream', () => {
 
 const RECONNECTED = 'CONNECTED';
 describe('retry logic in middleware connected to a port', () => {
-  let engineA: JsonRpcEngine | undefined = undefined;
-  let engineB;
+  let engineA: JsonRpcEngine | undefined;
   let messages: any[] = [];
   let messageConsumer: any;
   beforeEach(() => {
