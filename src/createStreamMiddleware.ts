@@ -132,6 +132,7 @@ export default function createStreamMiddleware(options: Options = {}) {
    */
   function retryStuckRequests() {
     Object.values(idMap).forEach(({ req, retryCount = 0 }) => {
+      // Avoid retrying requests without an id - they cannot have matching responses so retry logic doesn't apply
       // Check for retry count below ensure that a request is not retried more than 3 times
       if (!req.id || retryCount >= 3) {
         return;
