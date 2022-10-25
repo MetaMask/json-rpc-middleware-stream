@@ -103,6 +103,10 @@ export default function createStreamMiddleware(options: Options = {}) {
   function processResponse(res: PendingJsonRpcResponse<unknown>) {
     const context = idMap[res.id as unknown as string];
     if (!context) {
+      // In case response is received and corresponsing request is not present in idMap
+      // we only show warning and not throw error anymore.
+      // Reason for change is that due to MV3 we have added action replay capability
+      // Thus it can happen that a request ends up being submitted upto 3 retries and there are multiple responses
       console.warn(`StreamMiddleware - Unknown response id "${res.id}"`);
       return;
     }
@@ -134,7 +138,9 @@ export default function createStreamMiddleware(options: Options = {}) {
     Object.values(idMap).forEach(({ req, retryCount = 0 }) => {
       // Check for retry count below ensure that a request is not retried more than 3 times
       if (!req.id || retryCount >= 3) {
-        return;
+        throw new Error(
+          `StreamMiddleware - Retry limit exceeded for request id "${req.id}"`,
+        );
       }
       idMap[req.id].retryCount = retryCount + 1;
       sendToStream(req);
