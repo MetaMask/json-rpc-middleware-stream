@@ -185,7 +185,7 @@ describe('retry logic in middleware connected to a port', () => {
     expect(messages).toHaveLength(5);
   });
 
-  it('requests are not retried more than 3 times', async () => {
+  it('throw error when requests are retried more than 3 times', async () => {
     // request and expected result
     const req = { id: 1, jsonrpc, method: 'test' };
 
@@ -216,10 +216,10 @@ describe('retry logic in middleware connected to a port', () => {
     expect(messages).toHaveLength(4);
 
     // Reconnected, request is not sent again gets sent again message count stays at 4
-    messageConsumer({
-      method: RECONNECTED,
-    });
-    await artificialDelay();
-    expect(messages).toHaveLength(4);
+    expect(() => {
+      messageConsumer({
+        method: RECONNECTED,
+      });
+    }).toThrow();
   });
 });
