@@ -220,6 +220,6 @@ describe('retry logic in middleware connected to a port', () => {
       messageConsumer({
         method: RECONNECTED,
       });
-    }).toThrow();
+    }).toThrow('StreamMiddleware - Retry limit exceeded for request id');
   });
 });
