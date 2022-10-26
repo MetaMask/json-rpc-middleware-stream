@@ -103,7 +103,12 @@ export default function createStreamMiddleware(options: Options = {}) {
   function processResponse(res: PendingJsonRpcResponse<unknown>) {
     const context = idMap[res.id as unknown as string];
     if (!context) {
-      throw new Error(`StreamMiddleware - Unknown response id "${res.id}"`);
+      // In case response is received and corresponsing request is not present in idMap
+      // we only show warning and not throw error anymore.
+      // Reason for change is that due to MV3 we have added action replay capability
+      // Thus it can happen that a request ends up being submitted upto 3 retries and there are multiple responses
+      console.warn(`StreamMiddleware - Unknown response id "${res.id}"`);
+      return;
     }
 
     delete idMap[res.id as unknown as string];
