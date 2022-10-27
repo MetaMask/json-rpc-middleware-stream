@@ -133,7 +133,10 @@ export default function createStreamMiddleware(options: Options = {}) {
     Object.values(idMap).forEach(({ req, retryCount = 0 }) => {
       // Avoid retrying requests without an id - they cannot have matching responses so retry logic doesn't apply
       // Check for retry count below ensure that a request is not retried more than 3 times
-      if (!req.id || retryCount >= 3) {
+      if (!req.id) {
+        return;
+      }
+      if (retryCount >= 3) {
         throw new Error(
           `StreamMiddleware - Retry limit exceeded for request id "${req.id}"`,
         );
