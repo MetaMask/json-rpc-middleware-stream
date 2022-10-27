@@ -215,11 +215,28 @@ describe('retry logic in middleware connected to a port', () => {
     await artificialDelay();
     expect(messages).toHaveLength(4);
 
-    // Reconnected, request is not sent again gets sent again message count stays at 4
+    // Reconnected, error is thrrown when trying to resend request more that 3 times
     expect(() => {
       messageConsumer({
         method: RECONNECTED,
       });
     }).toThrow('StreamMiddleware - Retry limit exceeded for request id');
+  });
+
+  it('does not retry if the request has no id', async () => {
+    // request and expected result
+    const req = { id: undefined, jsonrpc, method: 'test' };
+
+    // Initially sent once, message count at 1
+    engineA?.handle(req);
+    await artificialDelay();
+    expect(messages).toHaveLength(1);
+
+    // Reconnected, but request is not re-submitted
+    messageConsumer({
+      method: RECONNECTED,
+    });
+    await artificialDelay();
+    expect(messages).toHaveLength(1);
   });
 });
