@@ -136,11 +136,13 @@ export default function createStreamMiddleware(options: Options = {}) {
       if (!req.id) {
         return;
       }
+
       if (retryCount >= 3) {
         throw new Error(
           `StreamMiddleware - Retry limit exceeded for request id "${req.id}"`,
         );
       }
+
       idMap[req.id].retryCount = retryCount + 1;
       sendToStream(req);
     });
