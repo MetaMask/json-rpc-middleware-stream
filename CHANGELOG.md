@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [4.1.0]
-### Uncategorized
-- Request retry count ([#30](https://github.com/MetaMask/json-rpc-middleware-stream/pull/30))
+### Changed
+- Added retry limit of 3 to requests ([#30](https://github.com/MetaMask/json-rpc-middleware-stream/pull/30))
 
 ## [4.0.0] - 2022-10-03
 ### Changed
