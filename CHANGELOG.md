@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.2.0]
 ### Changed
-- Change error throw when response is seen for unknown request into warning displayed in console([#32](https://github.com/MetaMask/json-rpc-middleware-stream/pull/32))
+- Change error throw when response is seen for unknown request into warning displayed in console ([#32](https://github.com/MetaMask/json-rpc-middleware-stream/pull/32))
 
 ## [4.1.0]
 ### Changed
