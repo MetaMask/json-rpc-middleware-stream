@@ -223,6 +223,19 @@ describe('retry logic in middleware connected to a port', () => {
     }).toThrow('StreamMiddleware - Retry limit exceeded for request id');
   });
 
+  it('does not throw error when response is received for request not in map', async () => {
+    // request and expected result
+    const req = { id: 1, jsonrpc, method: 'test' };
+    const res = { id: 1, jsonrpc, result: 'test' };
+
+    messageConsumer(res);
+
+    expect(() => {
+      messageConsumer(res);
+      messageConsumer(res);
+    }).not.toThrow();
+  });
+
   it('does not retry if the request has no id', async () => {
     // request and expected result
     const req = { id: undefined, jsonrpc, method: 'test' };
