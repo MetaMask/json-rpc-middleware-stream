@@ -7,10 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [4.2.1]
-### Uncategorized
-- Add early return if JSON RPC request is not found ([#35](https://github.com/MetaMask/json-rpc-middleware-stream/pull/35))
-- Bump ajv from 6.12.2 to 6.12.6 ([#26](https://github.com/MetaMask/json-rpc-middleware-stream/pull/26))
-- Bump @metamask/auto-changelog from 2.6.1 to 3.0.0 ([#34](https://github.com/MetaMask/json-rpc-middleware-stream/pull/34))
+### Fixed
+- Add early return in createStreamMiddleware.processsResponse method if JSON RPC request is not found ([#35](https://github.com/MetaMask/json-rpc-middleware-stream/pull/35))
 
 ## [4.2.0]
 ### Changed
