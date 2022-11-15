@@ -224,8 +224,6 @@ describe('retry logic in middleware connected to a port', () => {
   });
 
   it('does not throw error when response is received for request not in map', async () => {
-    // request and expected result
-    const req = { id: 1, jsonrpc, method: 'test' };
     const res = { id: 1, jsonrpc, result: 'test' };
 
     messageConsumer(res);
