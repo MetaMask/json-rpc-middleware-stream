@@ -1,13 +1,13 @@
 import SafeEventEmitter from '@metamask/safe-event-emitter';
 import { Duplex } from 'readable-stream';
-import {
+import type {
   JsonRpcEngineNextCallback,
   JsonRpcEngineEndCallback,
   JsonRpcNotification,
   JsonRpcMiddleware,
   JsonRpcRequest,
   PendingJsonRpcResponse,
-} from 'json-rpc-engine';
+} from '@metamask/json-rpc-engine';
 
 interface IdMapValue {
   req: JsonRpcRequest<unknown>;
