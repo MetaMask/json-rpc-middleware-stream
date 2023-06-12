@@ -18,13 +18,17 @@ describe('createStreamMiddleware', () => {
     const initRes = { id: 1, jsonrpc };
     const res = { id: 1, jsonrpc, result: 'test' };
 
-    await new Promise<void>((resolve, reject) => {
-      // listen for incoming requests
-      jsonRpcConnection.stream.on('data', (_req) => {
-        expect(req).toStrictEqual(_req);
-        jsonRpcConnection.stream.write(res);
-      });
+    // listen for incoming requests
+    jsonRpcConnection.stream.on('data', (_req) => {
+      expect(req).toStrictEqual(_req);
+      jsonRpcConnection.stream.write(res);
+    });
 
+    // wait for the stream to be ready
+    await artificialDelay();
+
+    // eslint-disable-next-line no-async-promise-executor
+    await new Promise<void>((resolve, reject) => {
       // run middleware, expect end fn to be called
       jsonRpcConnection.middleware(
         req,
