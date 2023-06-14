@@ -7,12 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [4.2.2]
-### Uncategorized
-- fix: race issue in stream processing ([#47](https://github.com/MetaMask/json-rpc-middleware-stream/pull/47))
+### Changed
 - Bump @metamask/safe-event-emitter from 2.0.0 to 3.0.0 ([#44](https://github.com/MetaMask/json-rpc-middleware-stream/pull/44))
-- Bump minimatch from 3.0.4 to 3.1.2 ([#40](https://github.com/MetaMask/json-rpc-middleware-stream/pull/40))
-- Bump json5 from 1.0.1 to 1.0.2 ([#39](https://github.com/MetaMask/json-rpc-middleware-stream/pull/39))
-- Bump @metamask/auto-changelog from 3.0.0 to 3.1.0 ([#38](https://github.com/MetaMask/json-rpc-middleware-stream/pull/38))
+
+### Fixed
+- Fix race condition in `createStreamMiddleware` ([#47](https://github.com/MetaMask/json-rpc-middleware-stream/pull/47))
+  - Previously this middleware would fail to process synchronous responses on initialized streams
 
 ## [4.2.1]
 ### Fixed
