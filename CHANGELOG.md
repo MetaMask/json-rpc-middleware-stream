@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.2.2]
+### Uncategorized
+- fix: race issue in stream processing ([#47](https://github.com/MetaMask/json-rpc-middleware-stream/pull/47))
+- Bump @metamask/safe-event-emitter from 2.0.0 to 3.0.0 ([#44](https://github.com/MetaMask/json-rpc-middleware-stream/pull/44))
+- Bump minimatch from 3.0.4 to 3.1.2 ([#40](https://github.com/MetaMask/json-rpc-middleware-stream/pull/40))
+- Bump json5 from 1.0.1 to 1.0.2 ([#39](https://github.com/MetaMask/json-rpc-middleware-stream/pull/39))
+- Bump @metamask/auto-changelog from 3.0.0 to 3.1.0 ([#38](https://github.com/MetaMask/json-rpc-middleware-stream/pull/38))
+
 ## [4.2.1]
 ### Fixed
 - Add early return in createStreamMiddleware.processsResponse method if JSON RPC request is not found ([#35](https://github.com/MetaMask/json-rpc-middleware-stream/pull/35))
@@ -30,7 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - TypeScript typings ([#11](https://github.com/MetaMask/json-rpc-middleware-stream/pull/11))
 
-[Unreleased]: https://github.com/MetaMask/json-rpc-middleware-stream/compare/v4.2.1...HEAD
+[Unreleased]: https://github.com/MetaMask/json-rpc-middleware-stream/compare/v4.2.2...HEAD
+[4.2.2]: https://github.com/MetaMask/json-rpc-middleware-stream/compare/v4.2.1...v4.2.2
 [4.2.1]: https://github.com/MetaMask/json-rpc-middleware-stream/compare/v4.2.0...v4.2.1
 [4.2.0]: https://github.com/MetaMask/json-rpc-middleware-stream/compare/v4.1.0...v4.2.0
 [4.1.0]: https://github.com/MetaMask/json-rpc-middleware-stream/compare/v4.0.0...v4.1.0
