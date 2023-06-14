@@ -27,7 +27,6 @@ describe('createStreamMiddleware', () => {
     // wait for the stream to be ready
     await artificialDelay();
 
-    // eslint-disable-next-line no-async-promise-executor
     await new Promise<void>((resolve, reject) => {
       // run middleware, expect end fn to be called
       jsonRpcConnection.middleware(
