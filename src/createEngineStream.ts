@@ -1,5 +1,6 @@
 import { Duplex } from 'readable-stream';
-import { JsonRpcEngine, JsonRpcRequest } from 'json-rpc-engine';
+import { JsonRpcEngine } from '@metamask/json-rpc-engine';
+import { JsonRpcRequest } from '@metamask/utils';
 
 interface EngineStreamOptions {
   engine: JsonRpcEngine;
