@@ -7,12 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [4.2.3]
-### Uncategorized
-- Bump word-wrap from 1.2.3 to 1.2.4 ([#53](https://github.com/MetaMask/json-rpc-middleware-stream/pull/53))
-- devDeps: @lavamoat/allow-scripts@1.0.6->2.3.1 ([#50](https://github.com/MetaMask/json-rpc-middleware-stream/pull/50))
-- ci: remove broken require-additional-reviewer workflow ([#51](https://github.com/MetaMask/json-rpc-middleware-stream/pull/51))
-- Bump @metamask/auto-changelog from 3.1.0 to 3.2.0 ([#52](https://github.com/MetaMask/json-rpc-middleware-stream/pull/52))
-- Bump semver from 6.3.0 to 6.3.1 ([#49](https://github.com/MetaMask/json-rpc-middleware-stream/pull/49))
+### Fixed
+- Moved json-rpc-engine from devDependencies to dependencies ([#56](https://github.com/MetaMask/json-rpc-middleware-stream/pull/53))
 
 ## [4.2.2]
 ### Changed
