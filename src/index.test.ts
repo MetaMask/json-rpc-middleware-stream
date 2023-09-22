@@ -82,6 +82,12 @@ describe('createEngineStream', () => {
       stream.write(req);
     });
   });
+
+  it('throw error when engine stream options not available', async () => {
+    expect(() => {
+      createEngineStream({} as any);
+    }).toThrow('Missing engine parameter!');
+  });
 });
 
 describe('middleware and engine to stream', () => {
