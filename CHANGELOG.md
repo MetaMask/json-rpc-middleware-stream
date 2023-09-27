@@ -7,12 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [5.0.1]
-### Uncategorized
-- update eslint and other packages to be aligned with core monorepo ([#66](https://github.com/MetaMask/json-rpc-middleware-stream/pull/66))
+### Changed
+- Bump eslint and other packages ([#66](https://github.com/MetaMask/json-rpc-middleware-stream/pull/66))
+  - `@metamask/eslint-confi` to ^12.0.0
+  - `@metamask/eslint-config-jest` to ^12.0.0
+  - `@metamask/eslint-config-nodejs` to ^12.0.0
+  - `@metamask/eslint-config-typescript` to ^12.0.0
+  - `@typescript-eslint/eslint-plugin` to ^5.30.7
+  - `@typescript-eslint/parser` to ^5.30.7
+  - `eslint` to ^8.44.0
+  - `eslint-config-prettier` to ^8.5.0
+  - `eslint-plugin-import` to ^2.26.0
+  - `eslint-plugin-jest` to ^27.1.5
+  - `eslint-plugin-jsdoc` to ^39.3.3
+  - `eslint-plugin-n` to ^15.7.0
+  - `eslint-plugin-prettier` to ^4.2.1
+  - `eslint-plugin-promise` to ^6.1.1
+  - `prettier` to ^2.7.1
 - lint: add lint:dependencies using depcheck ([#57](https://github.com/MetaMask/json-rpc-middleware-stream/pull/57))
-- ci: add nodejs versions 18,20 to test matrix ([#63](https://github.com/MetaMask/json-rpc-middleware-stream/pull/63))
-- upgrade typescript version to 4.6.3 to be inline with core monorepo ([#65](https://github.com/MetaMask/json-rpc-middleware-stream/pull/65))
-- migrate to yarn v3 ([#64](https://github.com/MetaMask/json-rpc-middleware-stream/pull/64))
+- Upgrade typescript version to 4.8.4 ([#68](https://github.com/MetaMask/json-rpc-middleware-stream/pull/68))
+- Migrate to yarn v3 ([#64](https://github.com/MetaMask/json-rpc-middleware-stream/pull/64))
+
 
 ## [5.0.0]
 ### Changed
